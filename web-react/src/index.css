@@ -1,0 +1,578 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-primary: #2b4bee;
+    --color-primary-hover: #3d5afe;
+    --color-bg-light: #f8fafc;
+    --color-bg-dark: #0a0b0f;
+    --color-surface-light: rgba(255, 255, 255, 0.85);
+    --color-surface-dark: rgba(26, 27, 35, 0.9);
+    --color-input-light: #f1f5f9;
+    --color-input-dark: #12131a;
+    --color-border-light: #e2e8f0;
+    --color-border-dark: #2a2d3a;
+    --color-text-light: #1e293b;
+    --color-text-muted-light: #64748b;
+    --color-text-muted: #8b8fa3;
+    --color-accent-violet: #8b5cf6;
+    --color-accent-cyan: #06b6d4;
+
+    --font-sans: 'Inter', system-ui, sans-serif;
+
+    --shadow-glow: 0 0 25px -5px rgba(43, 75, 238, 0.5);
+    --shadow-glow-lg: 0 0 40px -8px rgba(43, 75, 238, 0.6);
+    --shadow-card-light: 0 8px 32px -8px rgba(0, 0, 0, 0.1), 0 4px 16px -4px rgba(0, 0, 0, 0.06);
+    --shadow-card-dark: 0 8px 32px -8px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+
+    --animate-fade-in: fadeIn 0.6s ease-out forwards;
+    --animate-slide-up: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    --animate-scale-in: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    70% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 30px -5px rgba(34, 197, 94, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 50px -5px rgba(34, 197, 94, 0.7);
+    }
+}
+
+/* =============================================
+   HR Tech - Premium Production Styles
+   ============================================= */
+
+/* Reset tap highlight */
+*,
+*::before,
+*::after {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth theme transitions */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+    transition: background-color 500ms ease, border-color 500ms ease, color 300ms ease, box-shadow 300ms ease !important;
+}
+
+/* =============================================
+   Floating Background Animation
+   ============================================= */
+.floating-blob {
+    animation: float 20s ease-in-out infinite;
+}
+
+.floating-blob-delayed {
+    animation: float 25s ease-in-out infinite reverse;
+    animation-delay: -5s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+
+    50% {
+        transform: translate(-20px, 20px) scale(0.95);
+    }
+
+    75% {
+        transform: translate(40px, 40px) scale(1.05);
+    }
+}
+
+/* =============================================
+   Scrollbar Styles
+   ============================================= */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #1a1b23;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #cbd5e1, #94a3b8);
+    border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #4a4f68, #3b3f54);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #94a3b8, #64748b);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #5a5f78, #4a4f68);
+}
+
+/* =============================================
+   Autofill Styles
+   ============================================= */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #1e293b;
+    -webkit-box-shadow: 0 0 0px 1000px #f1f5f9 inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.dark input:-webkit-autofill,
+.dark input:-webkit-autofill:hover,
+.dark input:-webkit-autofill:focus {
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px #12131a inset;
+}
+
+/* =============================================
+   Material Icons Fine-tuning
+   ============================================= */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* =============================================
+   Glassmorphism Card Effect
+   ============================================= */
+.glass-card {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: relative;
+}
+
+/* =============================================
+   Input Focus Glow Effect
+   ============================================= */
+input:focus,
+select:focus,
+textarea:focus {
+    box-shadow: 0 0 0 3px rgba(43, 75, 238, 0.15), 0 0 20px -5px rgba(43, 75, 238, 0.2);
+}
+
+.dark input:focus,
+.dark select:focus,
+.dark textarea:focus {
+    box-shadow: 0 0 0 3px rgba(43, 75, 238, 0.25), 0 0 25px -5px rgba(43, 75, 238, 0.3);
+}
+
+/* =============================================
+   Checkbox Premium Styling
+   ============================================= */
+input[type="checkbox"] {
+    accent-color: #2b4bee;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #2b4bee;
+    border-color: #2b4bee;
+}
+
+/* =============================================
+   Staggered Animation Classes
+   ============================================= */
+.stagger-1 {
+    animation-delay: 0.05s;
+}
+
+.stagger-2 {
+    animation-delay: 0.1s;
+}
+
+.stagger-3 {
+    animation-delay: 0.15s;
+}
+
+.stagger-4 {
+    animation-delay: 0.2s;
+}
+
+.stagger-5 {
+    animation-delay: 0.25s;
+}
+
+.stagger-6 {
+    animation-delay: 0.3s;
+}
+
+.stagger-7 {
+    animation-delay: 0.35s;
+}
+
+/* =============================================
+   Form Element Reveal Animation
+   ============================================= */
+.field-reveal {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fieldReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fieldReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =============================================
+   Error Animations
+   ============================================= */
+.error-msg:not(.hidden) {
+    animation: shake 0.4s ease-out, fadeSlideIn 0.3s ease-out;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20%,
+    60% {
+        transform: translateX(-4px);
+    }
+
+    40%,
+    80% {
+        transform: translateX(4px);
+    }
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-shake {
+    animation: shake 0.4s ease-out;
+}
+
+/* =============================================
+   View Transition
+   ============================================= */
+.view-transition {
+    animation: viewFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes viewFade {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =============================================
+   Theme Toggle Button
+   ============================================= */
+#theme-toggle {
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 15px -3px rgba(43, 75, 238, 0.3);
+}
+
+#theme-toggle:active {
+    transform: scale(0.95);
+}
+
+/* =============================================
+   Button Ripple Effect
+   ============================================= */
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+    opacity: 0;
+}
+
+.btn-primary:active::after {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+}
+
+/* =============================================
+   Social Button Hover Effects
+   ============================================= */
+.social-btn {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.1);
+}
+
+.dark .social-btn:hover {
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+}
+
+.social-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* =============================================
+   Password Strength Bars
+   ============================================= */
+.strength-bar {
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* =============================================
+   Loading Spinner
+   ============================================= */
+.animate-spin {
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =============================================
+   Pulse Glow Effect
+   ============================================= */
+.pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* =============================================
+   Gradient Border Animation
+   ============================================= */
+.gradient-border-container {
+    position: relative;
+}
+
+.gradient-border-container .gradient-border {
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(90deg,
+            rgba(43, 75, 238, 0.3),
+            rgba(139, 92, 246, 0.4),
+            rgba(43, 75, 238, 0.3));
+    background-size: 200% 100%;
+    animation: gradientSlide 3s linear infinite;
+    border-radius: 1rem;
+    z-index: -1;
+    filter: blur(8px);
+}
+
+.dark .gradient-border-container .gradient-border {
+    background: linear-gradient(90deg,
+            rgba(43, 75, 238, 0.5),
+            rgba(139, 92, 246, 0.6),
+            rgba(43, 75, 238, 0.5));
+}
+
+.gradient-border {
+    background: linear-gradient(90deg, #2b4bee, #8b5cf6, #2b4bee);
+    background-size: 200% 100%;
+    animation: gradientSlide 3s linear infinite;
+}
+
+@keyframes gradientSlide {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+/* =============================================
+   Link Underline Animation
+   ============================================= */
+.link-hover {
+    position: relative;
+}
+
+.link-hover::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+}
+
+.link-hover:hover::after {
+    width: 100%;
+}
+
+/* =============================================
+   Confetti Animation
+   ============================================= */
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    animation: fall 3s ease-in-out forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Check animation */
+.check-circle {
+    animation: bounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+        pulseGlow 2s ease-in-out infinite 0.8s;
+}
+
+/* =============================================
+   Mobile Optimizations
+   ============================================= */
+@media (max-width: 640px) {
+
+    input,
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+
+    .floating-blob,
+    .floating-blob-delayed {
+        animation-duration: 30s;
+    }
+}
+
+/* =============================================
+   Reduced Motion Accessibility
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .floating-blob,
+    .floating-blob-delayed {
+        animation: none;
+    }
+}
