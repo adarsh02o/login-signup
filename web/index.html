@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSA HR Solutions | Sign Up</title>
+    <meta name="description" content="Join OSA HR Solutions - Create your premium workspace today">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="OSA HR Solutions | Premium HR Platform">
+    <meta property="og:description" content="Create your premium HR workspace today">
+    <meta property="og:type" content="website">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap"
+        rel="stylesheet">
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2b4bee',
+                        'primary-hover': '#3d5afe',
+                        'bg-light': '#f8fafc',
+                        'bg-dark': '#0a0b0f',
+                        'surface-light': 'rgba(255, 255, 255, 0.85)',
+                        'surface-dark': 'rgba(26, 27, 35, 0.9)',
+                        'input-light': '#f1f5f9',
+                        'input-dark': '#12131a',
+                        'border-light': '#e2e8f0',
+                        'border-dark': '#2a2d3a',
+                        'text-light': '#1e293b',
+                        'text-muted-light': '#64748b',
+                        'text-muted': '#8b8fa3',
+                        'accent-violet': '#8b5cf6',
+                        'accent-cyan': '#06b6d4',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 25px -5px rgba(43, 75, 238, 0.5)',
+                        'glow-lg': '0 0 40px -8px rgba(43, 75, 238, 0.6)',
+                        'card-light': '0 8px 32px -8px rgba(0, 0, 0, 0.1), 0 4px 16px -4px rgba(0, 0, 0, 0.06)',
+                        'card-dark': '0 8px 32px -8px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.05)',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'scale-in': 'scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            from: { opacity: '0' },
+                            to: { opacity: '1' },
+                        },
+                        slideUp: {
+                            from: { opacity: '0', transform: 'translateY(30px)' },
+                            to: { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        scaleIn: {
+                            from: { opacity: '0', transform: 'scale(0.95)' },
+                            to: { opacity: '1', transform: 'scale(1)' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="min-h-screen flex flex-col font-sans antialiased overflow-x-hidden transition-colors duration-500
+             bg-bg-light text-text-light selection:bg-primary/20
+             dark:bg-bg-dark dark:text-white dark:selection:bg-primary/30">
+
+    <!-- Animated Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <!-- Floating Blobs -->
+        <div class="floating-blob absolute -top-20 left-1/4 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] 
+                    bg-gradient-to-br from-primary/10 via-accent-violet/5 to-transparent
+                    dark:from-primary/20 dark:via-accent-violet/10 
+                    rounded-full blur-[100px] sm:blur-[150px]"></div>
+        <div class="floating-blob-delayed absolute -bottom-20 right-1/4 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] 
+                    bg-gradient-to-tl from-accent-violet/10 via-accent-cyan/5 to-transparent
+                    dark:from-accent-violet/15 dark:via-accent-cyan/10
+                    rounded-full blur-[80px] sm:blur-[120px]"></div>
+        <div class="floating-blob absolute top-1/2 -right-20 w-[300px] h-[300px] 
+                    bg-gradient-to-bl from-accent-cyan/5 to-transparent
+                    dark:from-accent-cyan/10
+                    rounded-full blur-[80px] opacity-60"></div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-8 sm:p-6">
+
+        <!-- Logo -->
+        <div class="mb-6 sm:mb-8 flex items-center gap-2.5 sm:gap-3 animate-fade-in">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 text-primary drop-shadow-lg">
+                <svg class="w-full h-full" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
+                </svg>
+            </div>
+            <h2
+                class="text-xl sm:text-2xl font-bold tracking-tight bg-gradient-to-r from-text-light to-text-muted-light dark:from-white dark:to-gray-400 bg-clip-text text-transparent">
+                OSA HR Solutions</h2>
+        </div>
+
+        <!-- Auth Card Container for Border -->
+        <div class="gradient-border-container w-full max-w-[400px] sm:max-w-[440px] animate-slide-up">
+            <!-- Auth Card with Glassmorphism -->
+            <div id="auth-card" class="glass-card w-full h-full rounded-2xl 
+                                       shadow-card-light dark:shadow-card-dark 
+                                       p-6 sm:p-8 relative overflow-hidden transition-all duration-500
+                                       bg-surface-light
+                                       dark:bg-surface-dark">
+
+
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="absolute top-4 right-4 sm:top-5 sm:right-5 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center shadow-sm
+                       bg-white/80 hover:bg-white border border-slate-200/50
+                       dark:bg-white/5 dark:hover:bg-white/10 dark:border-white/10" aria-label="Toggle theme">
+                    <span
+                        class="material-symbols-outlined text-[20px] sm:text-[22px] text-amber-500 dark:hidden">light_mode</span>
+                    <span
+                        class="material-symbols-outlined text-[20px] sm:text-[22px] text-blue-400 hidden dark:block">dark_mode</span>
+                </button>
+
+                <!-- Signup Form -->
+                <div id="signup-view">
+                    <header class="mb-6 sm:mb-8 text-center field-reveal">
+                        <h1
+                            class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-text-light to-text-muted-light dark:from-white dark:to-gray-400 bg-clip-text text-transparent">
+                            Join Now</h1>
+                    </header>
+
+                    <form id="signup-form" class="flex flex-col gap-4 sm:gap-5" novalidate>
+                        <!-- Full Name -->
+                        <div class="space-y-1.5 field-reveal stagger-1">
+                            <label for="signup-name"
+                                class="text-xs sm:text-sm font-medium ml-1 text-text-light dark:text-gray-300">Full
+                                Name</label>
+                            <div class="relative group">
+                                <span
+                                    class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-text-muted-light dark:text-text-muted group-focus-within:text-primary transition-colors duration-200">
+                                    <span class="material-symbols-outlined text-[18px] sm:text-[20px]">person</span>
+                                </span>
+                                <input type="text" id="signup-name" name="name" class="w-full text-sm rounded-xl pl-10 sm:pl-11 p-3 sm:p-3.5 transition-all duration-200
+                                       bg-input-light border border-border-light text-text-light placeholder:text-slate-400
+                                       dark:bg-input-dark dark:border-border-dark dark:text-white dark:placeholder:text-gray-500
+                                       focus:outline-none focus:border-primary focus:ring-0" placeholder="Example"
+                                    autocomplete="name">
+                            </div>
+                            <p class="error-msg text-red-500 text-xs ml-1 hidden"></p>
+                        </div>
+
+                        <!-- Work Email -->
+                        <div class="space-y-1.5 field-reveal stagger-2">
+                            <label for="signup-email"
+                                class="text-xs sm:text-sm font-medium ml-1 text-text-light dark:text-gray-300">Work
+                                Email</label>
+                            <div class="relative group">
+                                <span
+                                    class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-text-muted-light dark:text-text-muted group-focus-within:text-primary transition-colors duration-200">
+                                    <span class="material-symbols-outlined text-[18px] sm:text-[20px]">mail</span>
+                                </span>
+                                <input type="email" id="signup-email" name="email" class="w-full text-sm rounded-xl pl-10 sm:pl-11 p-3 sm:p-3.5 transition-all duration-200
+                                       bg-input-light border border-border-light text-text-light placeholder:text-slate-400
+                                       dark:bg-input-dark dark:border-border-dark dark:text-white dark:placeholder:text-gray-500
+                                       focus:outline-none focus:border-primary focus:ring-0"
+                                    placeholder="jane@company.com" autocomplete="email">
+                            </div>
+                            <p class="error-msg text-red-500 text-xs ml-1 hidden"></p>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="space-y-1.5 field-reveal stagger-3">
+                            <label for="signup-password"
+                                class="text-xs sm:text-sm font-medium ml-1 text-text-light dark:text-gray-300">Password</label>
+                            <div class="relative group">
+                                <span
+                                    class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-text-muted-light dark:text-text-muted group-focus-within:text-primary transition-colors duration-200">
+                                    <span class="material-symbols-outlined text-[18px] sm:text-[20px]">lock</span>
+                                </span>
+                                <input type="password" id="signup-password" name="password" class="w-full text-sm rounded-xl pl-10 sm:pl-11 pr-11 p-3 sm:p-3.5 transition-all duration-200
+                                       bg-input-light border border-border-light text-text-light placeholder:text-slate-400
+                                       dark:bg-input-dark dark:border-border-dark dark:text-white dark:placeholder:text-gray-500
+                                       focus:outline-none focus:border-primary focus:ring-0" placeholder="••••••••"
+                                    autocomplete="new-password">
+                                <button type="button"
+                                    class="toggle-password absolute inset-y-0 right-0 pr-3.5 flex items-center text-text-muted-light dark:text-text-muted hover:text-primary transition-colors duration-200"
+                                    aria-label="Toggle password visibility">
+                                    <span
+                                        class="material-symbols-outlined text-[18px] sm:text-[20px]">visibility_off</span>
+                                </button>
+                            </div>
+
+                            <!-- Password Strength Meter -->
+                            <div class="pt-2 flex flex-col gap-1.5">
+                                <div class="flex gap-1.5 h-1.5 w-full" id="strength-bars">
+                                    <div
+                                        class="strength-bar h-full flex-1 rounded-full bg-border-light dark:bg-border-dark">
+                                    </div>
+                                    <div
+                                        class="strength-bar h-full flex-1 rounded-full bg-border-light dark:bg-border-dark">
+                                    </div>
+                                    <div
+                                        class="strength-bar h-full flex-1 rounded-full bg-border-light dark:bg-border-dark">
+                                    </div>
+                                    <div
+                                        class="strength-bar h-full flex-1 rounded-full bg-border-light dark:bg-border-dark">
+                                    </div>
+                                </div>
+                                <div class="flex justify-between items-center px-0.5">
+                                    <span
+                                        class="text-[10px] text-text-muted-light dark:text-text-muted uppercase tracking-wider font-semibold">Strength</span>
+                                    <span id="strength-label" class="text-[10px] font-semibold"></span>
+                                </div>
+                            </div>
+                            <p class="error-msg text-red-500 text-xs ml-1 hidden"></p>
+                        </div>
+
+                        <!-- Terms Checkbox -->
+                        <div class="flex items-start gap-2.5 pt-1 field-reveal stagger-4">
+                            <div class="flex items-center h-5 mt-0.5">
+                                <input type="checkbox" id="terms" name="terms" class="w-4 h-4 rounded cursor-pointer text-primary focus:ring-primary focus:ring-offset-0 focus:ring-2
+                                   border-border-light bg-input-light
+                                   dark:border-border-dark dark:bg-input-dark transition-colors duration-200">
+                            </div>
+                            <label for="terms"
+                                class="text-[11px] sm:text-xs text-text-muted-light dark:text-text-muted leading-relaxed">
+                                By joining, you agree to our <a href="#"
+                                    class="text-primary hover:text-primary-hover link-hover font-medium">Terms of
+                                    Service</a> and <a href="#"
+                                    class="text-primary hover:text-primary-hover link-hover font-medium">Privacy
+                                    Policy</a>.
+                            </label>
+                        </div>
+                        <p id="terms-error" class="error-msg text-red-500 text-xs ml-1 hidden -mt-2"></p>
+
+                        <!-- Submit Button -->
+                        <button type="submit" id="signup-submit"
+                            class="btn-primary mt-2 w-full bg-gradient-to-r from-primary to-primary-hover hover:from-primary-hover hover:to-primary text-white font-semibold py-3 sm:py-3.5 px-4 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-lg active:scale-[0.98] flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base field-reveal stagger-5">
+                            <span>Create Account</span>
+                            <span
+                                class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+                        </button>
+                    </form>
+
+                    <!-- Divider -->
+                    <div class="my-6 relative flex items-center justify-center field-reveal stagger-6">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-border-light/50 dark:border-border-dark/50"></div>
+                        </div>
+                        <div class="relative px-4 text-[10px] sm:text-xs uppercase tracking-wider font-medium
+                                bg-surface-light text-text-muted-light
+                                dark:bg-transparent dark:text-text-muted">Or continue with</div>
+                    </div>
+
+                    <!-- Social Login (UI Only) -->
+                    <div class="grid grid-cols-2 gap-3 mb-5 field-reveal stagger-7">
+                        <button type="button"
+                            class="social-btn flex items-center justify-center gap-2 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium
+                                                  bg-white border border-slate-200 hover:border-slate-300 text-text-light
+                                                  dark:bg-white/5 dark:border-white/10 dark:hover:border-white/20 dark:text-white">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                                    fill="#4285F4"></path>
+                                <path
+                                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                                    fill="#34A853"></path>
+                                <path
+                                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                                    fill="#FBBC05"></path>
+                                <path
+                                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                                    fill="#EA4335"></path>
+                            </svg>
+                            Google
+                        </button>
+                        <button type="button"
+                            class="social-btn flex items-center justify-center gap-2 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium
+                                                  bg-white border border-slate-200 hover:border-slate-300 text-text-light
+                                                  dark:bg-white/5 dark:border-white/10 dark:hover:border-white/20 dark:text-white">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.285 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z">
+                                </path>
+                            </svg>
+                            GitHub
+                        </button>
+                    </div>
+
+                    <!-- Login Link -->
+                    <div class="text-center field-reveal stagger-7">
+                        <p class="text-text-muted-light dark:text-text-muted text-xs sm:text-sm">
+                            Already have an account?
+                            <a href="#" id="show-login"
+                                class="text-primary font-semibold hover:text-primary-hover link-hover">Log in</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Login Form (Hidden by default) -->
+                <div id="login-view" class="hidden">
+                    <header class="mb-6 sm:mb-8 text-center pr-12 field-reveal">
+                        <h1
+                            class="text-xl sm:text-2xl font-bold mb-1.5 sm:mb-2 bg-gradient-to-r from-text-light via-text-light to-text-muted-light dark:from-white dark:via-white dark:to-gray-400 bg-clip-text text-transparent">
+                            Welcome Back</h1>
+                        <p class="text-text-muted-light dark:text-text-muted text-xs sm:text-sm">Sign in to your
+                            workspace
+                        </p>
+                    </header>
+
+                    <form id="login-form" class="flex flex-col gap-4 sm:gap-5" novalidate>
+                        <!-- Email -->
+                        <div class="space-y-1.5 field-reveal stagger-1">
+                            <label for="login-email"
+                                class="text-xs sm:text-sm font-medium ml-1 text-text-light dark:text-gray-300">Work
+                                Email</label>
+                            <div class="relative group">
+                                <span
+                                    class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-text-muted-light dark:text-text-muted group-focus-within:text-primary transition-colors duration-200">
+                                    <span class="material-symbols-outlined text-[18px] sm:text-[20px]">mail</span>
+                                </span>
+                                <input type="email" id="login-email" name="email" class="w-full text-sm rounded-xl pl-10 sm:pl-11 p-3 sm:p-3.5 transition-all duration-200
+                                       bg-input-light border border-border-light text-text-light placeholder:text-slate-400
+                                       dark:bg-input-dark dark:border-border-dark dark:text-white dark:placeholder:text-gray-500
+                                       focus:outline-none focus:border-primary focus:ring-0"
+                                    placeholder="jane@company.com" autocomplete="email">
+                            </div>
+                            <p class="error-msg text-red-500 text-xs ml-1 hidden"></p>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="space-y-1.5 field-reveal stagger-2">
+                            <label for="login-password"
+                                class="text-xs sm:text-sm font-medium ml-1 text-text-light dark:text-gray-300">Password</label>
+                            <div class="relative group">
+                                <span
+                                    class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-text-muted-light dark:text-text-muted group-focus-within:text-primary transition-colors duration-200">
+                                    <span class="material-symbols-outlined text-[18px] sm:text-[20px]">lock</span>
+                                </span>
+                                <input type="password" id="login-password" name="password" class="w-full text-sm rounded-xl pl-10 sm:pl-11 pr-11 p-3 sm:p-3.5 transition-all duration-200
+                                       bg-input-light border border-border-light text-text-light placeholder:text-slate-400
+                                       dark:bg-input-dark dark:border-border-dark dark:text-white dark:placeholder:text-gray-500
+                                       focus:outline-none focus:border-primary focus:ring-0" placeholder="••••••••"
+                                    autocomplete="current-password">
+                                <button type="button"
+                                    class="toggle-password absolute inset-y-0 right-0 pr-3.5 flex items-center text-text-muted-light dark:text-text-muted hover:text-primary transition-colors duration-200"
+                                    aria-label="Toggle password visibility">
+                                    <span
+                                        class="material-symbols-outlined text-[18px] sm:text-[20px]">visibility_off</span>
+                                </button>
+                            </div>
+                            <p class="error-msg text-red-500 text-xs ml-1 hidden"></p>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" id="login-submit"
+                            class="btn-primary mt-2 w-full bg-gradient-to-r from-primary to-primary-hover hover:from-primary-hover hover:to-primary text-white font-semibold py-3 sm:py-3.5 px-4 rounded-xl transition-all duration-300 shadow-glow hover:shadow-glow-lg active:scale-[0.98] flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base field-reveal stagger-3">
+                            <span>Log In</span>
+                            <span
+                                class="material-symbols-outlined text-[18px] transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+                        </button>
+                    </form>
+
+                    <!-- Divider -->
+                    <div class="my-6 relative flex items-center justify-center field-reveal stagger-4">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-border-light/50 dark:border-border-dark/50"></div>
+                        </div>
+                        <div class="relative px-4 text-[10px] sm:text-xs uppercase tracking-wider font-medium
+                                bg-surface-light text-text-muted-light
+                                dark:bg-transparent dark:text-text-muted">Or continue with</div>
+                    </div>
+
+                    <!-- Social Login (UI Only) -->
+                    <div class="grid grid-cols-2 gap-3 mb-5 field-reveal stagger-5">
+                        <button type="button"
+                            class="social-btn flex items-center justify-center gap-2 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium
+                                                  bg-white border border-slate-200 hover:border-slate-300 text-text-light
+                                                  dark:bg-white/5 dark:border-white/10 dark:hover:border-white/20 dark:text-white">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                                    fill="#4285F4"></path>
+                                <path
+                                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                                    fill="#34A853"></path>
+                                <path
+                                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                                    fill="#FBBC05"></path>
+                                <path
+                                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                                    fill="#EA4335"></path>
+                            </svg>
+                            Google
+                        </button>
+                        <button type="button"
+                            class="social-btn flex items-center justify-center gap-2 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-medium
+                                                  bg-white border border-slate-200 hover:border-slate-300 text-text-light
+                                                  dark:bg-white/5 dark:border-white/10 dark:hover:border-white/20 dark:text-white">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.285 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z">
+                                </path>
+                            </svg>
+                            GitHub
+                        </button>
+                    </div>
+
+                    <!-- Signup Link -->
+                    <div class="text-center field-reveal stagger-6">
+                        <p class="text-text-muted-light dark:text-text-muted text-xs sm:text-sm">
+                            Don't have an account?
+                            <a href="#" id="show-signup"
+                                class="text-primary font-semibold hover:text-primary-hover link-hover">Sign up</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Badge -->
+        <div class="mt-6 sm:mt-8 flex items-center gap-2 opacity-70 animate-fade-in text-text-muted-light dark:text-text-muted"
+            style="animation-delay: 0.5s;">
+            <span class="material-symbols-outlined text-[14px] sm:text-[16px]">verified_user</span>
+            <span class="text-[10px] sm:text-xs font-medium">Secured by OSA HR Solutions Enterprise</span>
+        </div>
+    </main>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>

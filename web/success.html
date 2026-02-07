@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | OSA HR Solutions</title>
+    <meta name="description" content="Successfully logged in to OSA HR Solutions">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2b4bee',
+                        'bg-light': '#f8fafc',
+                        'bg-dark': '#0a0b0f',
+                        'surface-light': 'rgba(255, 255, 255, 0.85)',
+                        'surface-dark': 'rgba(26, 27, 35, 0.9)',
+                        'border-light': '#e2e8f0',
+                        'border-dark': '#2a2d3a',
+                        'text-light': '#1e293b',
+                        'text-muted-light': '#64748b',
+                        'text-muted': '#8b8fa3',
+                        'accent-violet': '#8b5cf6',
+                        'accent-cyan': '#06b6d4',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'card-light': '0 8px 32px -8px rgba(0, 0, 0, 0.1)',
+                        'card-dark': '0 8px 32px -8px rgba(0, 0, 0, 0.5)',
+                        'glow-success': '0 0 40px -8px rgba(34, 197, 94, 0.5)',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'bounce-in': 'bounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+                        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+                        'check-draw': 'checkDraw 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            from: { opacity: '0' },
+                            to: { opacity: '1' },
+                        },
+                        slideUp: {
+                            from: { opacity: '0', transform: 'translateY(30px)' },
+                            to: { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        bounceIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.3)' },
+                            '50%': { transform: 'scale(1.08)' },
+                            '70%': { transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 30px -5px rgba(34, 197, 94, 0.4)' },
+                            '50%': { boxShadow: '0 0 50px -5px rgba(34, 197, 94, 0.7)' },
+                        },
+                        checkDraw: {
+                            '0%': { strokeDashoffset: '100' },
+                            '100%': { strokeDashoffset: '0' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-card {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Floating animation */
+        .floating-blob {
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .floating-blob-delayed {
+            animation: float 25s ease-in-out infinite reverse;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            25% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+
+            50% {
+                transform: translate(-20px, 20px) scale(0.95);
+            }
+
+            75% {
+                transform: translate(40px, 40px) scale(1.05);
+            }
+        }
+
+        /* Confetti */
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            animation: fall 3s ease-in-out forwards;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Gradient border animation */
+        .gradient-border {
+            background: linear-gradient(90deg, #22c55e, #06b6d4, #22c55e);
+            background-size: 200% 100%;
+            animation: gradientSlide 3s linear infinite;
+        }
+
+        @keyframes gradientSlide {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+
+        #theme-toggle {
+            transition: transform 0.2s ease,
+                background-color 0.3s ease;
+        }
+
+        #theme-toggle:hover {
+            transform: scale(1.08);
+            box-shadow: 0 4px 15px -3px rgba(43, 75, 238, 0.3);
+        }
+
+        #theme-toggle:active {
+            transform: scale(0.95);
+        }
+
+        /* Card shimmer removed - gradient animation is on gradient-border bars only */
+
+        /* Check animation */
+        .check-circle {
+            animation: bounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+                pulseGlow 2s ease-in-out infinite 0.8s;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col font-sans antialiased overflow-x-hidden transition-colors duration-500
+             bg-bg-light text-text-light selection:bg-primary/20
+             dark:bg-bg-dark dark:text-white dark:selection:bg-primary/30">
+
+    <!-- Confetti Container -->
+    <div id="confetti-container" class="fixed inset-0 pointer-events-none z-50 overflow-hidden"></div>
+
+    <!-- Animated Background -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <div class="floating-blob absolute -top-20 left-1/4 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] 
+                    bg-gradient-to-br from-green-500/10 via-accent-cyan/5 to-transparent
+                    dark:from-green-500/15 dark:via-accent-cyan/10 
+                    rounded-full blur-[100px] sm:blur-[150px]"></div>
+        <div class="floating-blob-delayed absolute -bottom-20 right-1/4 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] 
+                    bg-gradient-to-tl from-accent-violet/10 via-green-500/5 to-transparent
+                    dark:from-accent-violet/15 dark:via-green-500/10
+                    rounded-full blur-[80px] sm:blur-[120px]"></div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-8 sm:p-6">
+
+        <!-- Logo -->
+        <div class="mb-6 sm:mb-8 flex items-center gap-2.5 sm:gap-3 animate-fade-in">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 text-primary drop-shadow-lg">
+                <svg class="w-full h-full" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
+                </svg>
+            </div>
+            <h2
+                class="text-xl sm:text-2xl font-bold tracking-tight bg-gradient-to-r from-text-light to-text-muted-light dark:from-white dark:to-gray-400 bg-clip-text text-transparent">
+                OSA HR Solutions</h2>
+        </div>
+
+        <!-- Success Card Container for Border -->
+        <div class="gradient-border-container w-full max-w-[380px] sm:max-w-[440px] animate-slide-up">
+            <div class="glass-card w-full h-full rounded-2xl shadow-card-light dark:shadow-card-dark 
+                        p-8 sm:p-10 relative overflow-hidden transition-all duration-500
+                        bg-surface-light
+                        dark:bg-surface-dark">
+
+
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="absolute top-4 right-4 sm:top-5 sm:right-5 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center shadow-sm
+                       bg-white/80 hover:bg-white border border-slate-200/50
+                       dark:bg-white/5 dark:hover:bg-white/10 dark:border-white/10" aria-label="Toggle theme">
+                    <span
+                        class="material-symbols-outlined text-[20px] sm:text-[22px] text-amber-500 dark:hidden">light_mode</span>
+                    <span
+                        class="material-symbols-outlined text-[20px] sm:text-[22px] text-blue-400 hidden dark:block">dark_mode</span>
+                </button>
+
+                <!-- Success Content -->
+                <div class="text-center">
+                    <!-- Animated Check Icon -->
+                    <div class="check-circle w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-6 sm:mb-8 rounded-full flex items-center justify-center
+                            bg-gradient-to-br from-green-500/20 to-emerald-500/10
+                            dark:from-green-500/30 dark:to-emerald-500/20" style="animation-delay: 0.2s;">
+                        <span class="material-symbols-outlined text-green-500 text-6xl sm:text-7xl"
+                            style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    </div>
+
+                    <!-- Heading -->
+                    <h1 class="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 animate-slide-up bg-gradient-to-r from-text-light to-text-muted-light dark:from-white dark:to-gray-300 bg-clip-text text-transparent"
+                        style="animation-delay: 0.3s;">
+                        Yay!!! 🎉
+                    </h1>
+
+                    <!-- Message -->
+                    <p class="text-lg sm:text-xl mb-2 animate-slide-up text-text-muted-light dark:text-gray-300"
+                        style="animation-delay: 0.4s;">
+                        You logged in successfully
+                    </p>
+
+                    <p id="welcome-name"
+                        class="text-sm sm:text-base font-semibold animate-slide-up text-primary dark:text-primary"
+                        style="animation-delay: 0.5s;">
+                    </p>
+
+                    <!-- Back to Login Button -->
+                    <a href="index.html"
+                        class="mt-8 inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-3.5 bg-gradient-to-r from-primary to-[#3d5afe] hover:from-[#3d5afe] hover:to-primary text-white text-sm sm:text-base font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary/20 active:scale-[0.98] animate-slide-up"
+                        style="animation-delay: 0.6s;">
+                        <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                        <span>Back to Login</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust Badge -->
+        <div class="mt-6 sm:mt-8 flex items-center gap-2 opacity-70 animate-fade-in text-text-muted-light dark:text-text-muted"
+            style="animation-delay: 0.8s;">
+            <span class="material-symbols-outlined text-[14px] sm:text-[16px]">verified_user</span>
+            <span class="text-[10px] sm:text-xs font-medium">Secured by OSA HR Solutions Enterprise</span>
+        </div>
+    </main>
+
+    <script>
+        const THEME_KEY = 'osa-hr-theme';
+        const CONFETTI_COLORS = ['#22c55e', '#3b82f6', '#8b5cf6', '#f59e0b', '#ef4444', '#ec4899', '#06b6d4'];
+
+        function initTheme() {
+            const saved = localStorage.getItem(THEME_KEY);
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
+        }
+
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const count = window.innerWidth < 640 ? 40 : 60;
+
+            for (let i = 0; i < count; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'confetti-piece';
+                piece.style.left = Math.random() * 100 + '%';
+                piece.style.backgroundColor = CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)];
+                piece.style.animationDelay = Math.random() * 0.8 + 's';
+                piece.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                piece.style.width = (Math.random() * 6 + 6) + 'px';
+                piece.style.height = (Math.random() * 6 + 6) + 'px';
+                container.appendChild(piece);
+            }
+
+            setTimeout(() => container.innerHTML = '', 5000);
+        }
+
+        initTheme();
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+
+        // Display user's name
+        function displayUserName() {
+            const userName = localStorage.getItem('osa-hr-user-name');
+            const welcomeEl = document.getElementById('welcome-name');
+            if (userName && welcomeEl) {
+                welcomeEl.textContent = `Welcome, ${userName}!`;
+            } else if (welcomeEl) {
+                welcomeEl.textContent = 'Welcome to OSA HR Solutions!';
+            }
+        }
+        displayUserName();
+
+        // Launch confetti
+        setTimeout(createConfetti, 400);
+    </script>
+</body>
+
+</html>
